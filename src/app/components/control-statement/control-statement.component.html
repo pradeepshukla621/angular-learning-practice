@@ -1,0 +1,117 @@
+<div class="my-2 p-2 bg-secondary text-white rounded">
+    <h1>Control-Flow-Statement</h1>
+    <!-- &#64; is used to show @ in HTML -->
+    <p>&#64;if, &#64;else, &#64;else if, &#64;for</p>
+</div>
+
+<div class="row pt-3">
+
+    <!-- div1 -->
+    <div class="col-3">
+        @if(isDiv1Visible == true){
+        <div class="bg-danger p-3 text-center">
+            Div-1
+        </div>
+        }
+    </div>
+
+    <!-- div2 -->
+    <div class="col-3">
+        @if(isChecked){
+        <div class="bg-primary p-3">
+            Div-2 Checkbox is Checked
+        </div>
+        }
+
+        @else {
+        <div class="bg-danger p-3">
+            Div-2 Checkbox is UnChecked
+        </div>
+        }
+    </div>
+
+    <!-- div3 -->
+    <div class="col-3 text-center bg-secondary">
+        @if(dayName == 'mon') {
+        <span>Monday</span>
+        } @else if (dayName == 'tue') {
+        <span>Tuesday</span>
+        } @else if (dayName == 'wed') {
+        <span>Wednesday</span>
+        } @else if (dayName == 'thu') {
+        <span>Thursday</span>
+        } @else if (dayName == 'fri') {
+        <span>Friday</span>
+        } @else if (dayName == 'sat') {
+        <span>Saturday</span>
+        } @else if (dayName == 'sun') {
+        <span>Sunday</span>
+        }
+        @else {
+        <span>Enter Proper Day Name</span>
+        }
+    </div>
+
+</div>
+
+
+<div class="row pt-3">
+
+    <!-- div1 -->
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="hideShowDiv1(true)">Show</button>
+        <button class="btn btn-success" (click)="hideShowDiv1(false)">Hide</button>
+    </div>
+
+    <!-- div2 -->
+    <div class="col-3 text-center">
+        <input type="checkbox" [(ngModel)]="isChecked">
+    </div>
+
+    <!-- div3 -->
+    <div class="col-3 text-center">
+        <input type="text" [(ngModel)]="dayName">
+    </div>
+
+    <!-- div4 -->
+    <div class="col-3 text-center">
+        <select name="" id="">
+            @for(item of cityArray; track $index) {
+            <option value="">{{item}} </option>
+            }
+        </select>
+    </div>
+
+    <!-- div5 -->
+    <div class="col-6">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>studentId</th>
+                    <th>name</th>
+                    <th>city</th>
+                    <th>isActive</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                <!-- <div *ngFor="let student of studentList; let srNo = index" > let is used in *ngFor but not in @for</div> -->
+                @for(student of studentList; track $index){
+                <tr>
+                    <td>{{$index + 1 }} </td>
+                    <td>{{student.name}} </td>
+                    <td>{{student.city}} </td>
+                    <td>
+                        <span *ngIf="student.isActive">Active</span>
+                        <span *ngIf="!student.isActive">De-Active</span>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

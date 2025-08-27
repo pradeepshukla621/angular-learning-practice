@@ -1,0 +1,162 @@
+<!-- <app-sidebar></app-sidebar> -->
+<!-- https://colorhunt.co/palette/164863427d9d9bbec8ddf2fd          (color pattern) -->
+<!-- style="background-color: aqua !important -->
+<!-- style="background-color: #164863 !important;" -->
+<!-- #ebc5cc -->
+<!-- #eda476  -->
+
+<!-- linear-gradient(to right, #d1f2eb, #ffe0cc) -->
+
+<nav class="navbar bg-body-tertiary border rounded m-2" style="background: linear-gradient(to right, #f9a186, #f7c5b0);">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white " href="#">
+      <h3>Angular 19 </h3>
+    </a>
+
+    <div>
+      <button class="btn btn-outline-danger me-3" type="button" (click)="onLogout()">Log Out</button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Component Lists</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" routerLink="dataBinding">Data Binding</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="ngif">ngIF</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="ngfor">ngfor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="ngclss">ngclss</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="ngstye">ngstye</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="controlstatement">controlstatement</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="signal">signal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="linkedsignal">linkedsignal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="routing">Routing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="templateform">Template Form</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="reactiveform">Reactive Form</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="coustomerapi">Coustomer Api CRUD</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="rsourceapi">Rsource Api</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="lifecycle">Life Cycle</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="pipe">Pipe</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="reusable">ReusableUI (Input/Output)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="class-interface">Class & Interface</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="viewChild">ViewChild</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="ngTemplateNgContainer">ngTemplate & ngContainer</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="formArray">FormArray</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="#">Angular 19</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Component Lists</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page"  href="#" routerLink="dataBinding" >Interpolation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="ngif">ngIF</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+      </div>
+    </div>
+  </nav>
+   -->

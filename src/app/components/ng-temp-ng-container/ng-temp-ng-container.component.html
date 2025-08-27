@@ -1,0 +1,61 @@
+<p>ng-temp-ng-container works!</p>
+
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>studentId</th>
+                    <th>name</th>
+                    <th>city</th>
+                    <th>isActive</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                <ng-container *ngIf="isLoader">
+                    <!-- <ng-container *ngTemplateOutlet="loaderTemplate">
+
+                    </ng-container> -->
+
+                    <div [ngTemplateOutlet]="loaderTemplate"></div>
+                    
+                </ng-container>
+
+                <ng-container *ngIf="!isLoader">
+                    <tr *ngFor="let student of studentList; let srNo = index">
+                        <td>{{srNo + 1 }} </td>
+                        <td>{{student.name}} </td>
+                        <td>{{student.city}} </td>
+                        <td>
+                            <span *ngIf="student.isActive else tempDeActive">Active</span>
+                        </td>
+                    </tr>
+                </ng-container>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #loaderTemplate>
+    <td colspan="4" class="text-align">
+        <div class="spinner-border text-muted"></div>
+        <div class="spinner-border text-primary"></div>
+        <div class="spinner-border text-success"></div>
+        <div class="spinner-border text-info"></div>
+        <div class="spinner-border text-warning"></div>
+        <div class="spinner-border text-danger"></div>
+        <div class="spinner-border text-secondary"></div>
+        <div class="spinner-border text-dark"></div>
+        <div class="spinner-border text-light"></div>
+    </td>
+</ng-template>
+
+
+<ng-template #tempDeActive>
+    <div class="text-danger">
+        <span>De-Active</span>
+    </div>
+</ng-template>

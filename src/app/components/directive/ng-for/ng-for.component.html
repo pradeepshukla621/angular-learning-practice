@@ -1,0 +1,61 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>Structural Directive</h1>
+    <p>*ngFor</p>
+</div>
+<p>ng-for works!</p>
+
+<!-- Single Array data  print in diffrent use cases -->
+
+<div class="row">
+    <div class="col-3">
+        <ul>
+            <li *ngFor="let city of cityArray">{{city}} </li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <div *ngFor="let kuchhBhiDedo of cityArray">{{kuchhBhiDedo}} </div>
+    </div>
+    <div class="col-3"> 
+        <select>
+            <option *ngFor="let city of cityArray">{{city}} </option>
+        </select>
+    </div>
+
+
+    <div class="col-3">
+        <select >
+            <option *ngFor="let stude of studentList" value="stude.studentId" >{{stude.name}}</option>
+        </select>
+    </div>
+</div>
+
+<!-- Table -->
+
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>studentId</th>
+                    <th>name</th>
+                    <th>city</th>
+                    <th>isActive</th>
+                </tr>
+                
+            </thead>
+            
+            <tbody>
+                <tr *ngFor="let student of studentList; let srNo = index">
+                    <td>{{srNo + 1 }} </td>
+                    <td>{{student.name}} </td>
+                    <td>{{student.city}} </td>
+                    <td>
+                        <span *ngIf="student.isActive">Active</span>
+                        <span *ngIf="!student.isActive">De-Active</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

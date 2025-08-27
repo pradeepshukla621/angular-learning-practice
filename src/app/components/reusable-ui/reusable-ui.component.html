@@ -1,0 +1,59 @@
+<p>reusable-ui works!</p>
+
+<p><b> &#64;Input() </b> parent to child</p>
+
+<!--  -->
+<div class="row">
+    <div class="p-3">
+        <div class="col-4">
+            <app-progres-bar [progressValue]="20" ></app-progres-bar>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="p-3">
+        <div class="col-4">
+            <app-progres-bar [progressValue]="80" ></app-progres-bar>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-6">
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>studentId</th>
+                <th>name</th>
+                <th>city</th>
+                <th>progress</th>
+                <th>isActive</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <!-- <div *ngFor="let student of studentList; let srNo = index" > let is used in *ngFor but not in @for</div> -->
+            @for(student of studentList; track $index){
+            <tr>
+                <td>{{$index + 1 }} </td>
+                <td>{{student.name}} </td>
+                <td>{{student.city}} </td>
+                <td>
+                    <app-progres-bar [progressValue]="student.progressValue" > </app-progres-bar>
+                </td>
+                <td>
+                    <span *ngIf="student.isActive">Active</span>
+                    <span *ngIf="!student.isActive">De-Active</span>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+
+<p><b> &#64;Output() </b> child to parent</p>

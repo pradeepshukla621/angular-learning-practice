@@ -1,0 +1,82 @@
+<p>template-form works!</p>
+
+<div class="container-fluid form-wrapper">
+    <h1>User Form</h1>
+    <form #userform="ngForm" class="row g-3 needs-validation">
+        <div class="col-md-4">
+            <label for="" class="form-label">First name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="firstName" #fname="ngModel" required
+                [(ngModel)]="userObj.firstName">
+            <div class="text-danger">
+                @if(fname.errors?.['required'] && fname.touched && fname.dirty ){
+                <span>This is required</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="" class="form-label">Last name</label>
+            <input type="text" class="form-control" name="lastName" required minlength="5" #lname="ngModel"
+                [(ngModel)]="userObj.lastName">
+            <div class="text-danger">
+                <span *ngIf="lname.errors?.['required'] && lname.touched">This is required</span>
+                <span *ngIf="lname.errors?.['minlength'] && lname.touched">Min Char 5 is required </span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="" class="form-label">Username</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend"><!-- @-->&#64;</span>
+                <input type="text" class="form-control" name="userName" required #uname="ngModel"
+                    [(ngModel)]="userObj.userName">
+            </div>
+            <div class="text-danger">
+                <span *ngIf="uname.errors?.['required'] && uname.touched"> Please choose a username.</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="" class="form-label">City</label>
+            <input type="text" class="form-control" name="city" required #city="ngModel" [(ngModel)]="userObj.city">
+            <div class="text-danger">
+                <span *ngIf="city.errors?.['required'] && city.touched"> Please provide a valid city.</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="" class="form-label">State</label>
+            <select class="form-select" name="state" required #state="ngModel" [(ngModel)]="userObj.state">
+                <option selected disabled value="">Choose...</option>
+                <option>Delhi</option>
+                <option>UP</option>
+                <option>Mumbai</option>
+
+            </select>
+            <div class="text-danger">
+                <span *ngIf="state.errors?.['required'] && state.touched">Please select a valid state.</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="" class="form-label">Zip</label>
+            <input type="text" class="form-control" name="zipCode" required #zip="ngModel"
+                [(ngModel)]="userObj.zipCode">
+            <div class="text-danger">
+                @if(zip.errors?.['required'] && zip.touched){
+                <span>Please provide a valid zip.</span>
+                }
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="isTermAgree" [(ngModel)]="userObj.isTermAgree">
+                <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="button" [disabled]="userform.invalid" (click)="onSave($event)">Submit
+                form</button>
+        </div>
+    </form>
+</div>

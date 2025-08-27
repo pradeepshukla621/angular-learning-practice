@@ -1,0 +1,33 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure the body and html are 100% height */
+  }
+
+  .app-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100dvh;
+  }
+  
+  .row {
+    padding: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    --bs-gutter-x: 0 !important;
+  }
+
+
+
+//   .row > * {
+//     padding: 0 !important;
+//     margin: 0 !important;
+//   }
+
+
+
+//   * {
+//     outline: 1px solid red; /* Highlights all elements */
+//   }

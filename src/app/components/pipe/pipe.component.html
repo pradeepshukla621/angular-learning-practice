@@ -1,0 +1,123 @@
+<p>pipe works!</p>
+
+<div class="mt-2 mb-4 p-2 bg-secondary text-white rounded">
+    <h1>Pipe</h1>
+    <p>pipe</p>
+</div>
+<!-- <p>ng-for works! (bsic content is coppied from *ngfor component)</p> -->
+
+<div class="row">
+    
+    <div class="col-2">
+       courseName =>  {{ courseName  }}
+       <br >
+       courseName =>  {{ courseName | uppercase }}
+    </div>
+    <div class="col-2">
+        courseName =>  {{ courseName  }}
+        <br >
+        courseName =>  {{ courseName | lowercase }}
+     </div>
+     <div class="col-2">
+        studentObj =>  {{ studentObj  }}
+        <br >
+        studentObj =>  {{ studentObj | json }}
+     </div>
+     <div class="col-3">
+        {{studentList |json}}
+     </div>
+    
+ </div>
+
+ <div class="row">
+    <div class="col-2">
+        currentDate =>  {{ currentDate  }}
+        <br >
+        dateOnly =>  {{ currentDate | date }}
+     </div>
+
+     <div class="col-2">
+        currentDate =>  {{ currentDate  }}
+        <br >
+        dateOnly =>  {{ currentDate | date: 'dd-MMM-yy' }}
+     </div>
+
+     <div class="col-2">
+        currentDate =>  {{ currentDate  }}
+        <br >
+        dateOnly =>  {{ currentDate | date: 'dd-MM-yyyy' }}
+     </div>
+
+     <div class="col-2">
+        currentDate =>  {{ currentDate  }}
+        <br >
+        dateOnly =>  {{ currentDate | date: 'dd/MMM/yy' }}
+        <br>
+        timeOnly => {{currentDate | date: 'hh:mm:ss'}}
+
+     </div>
+ </div>
+
+
+
+
+ <div class="my-5">...</div>
+
+<!-- Single Array data  print in diffrent use cases -->
+
+<!-- <div class="row">
+   
+    <div class="col-3">
+        <ul>
+            <li *ngFor="let city of cityArray">{{city}} </li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <div *ngFor="let kuchhBhiDedo of cityArray">{{kuchhBhiDedo}} </div>
+    </div>
+    <div class="col-3"> 
+        <select>
+            <option *ngFor="let city of cityArray">{{city}} </option>
+        </select>
+    </div>
+
+
+    <div class="col-3">
+        <select >
+            <option *ngFor="let stude of studentList" value="stude.studentId" >{{stude.name}}</option>
+        </select>
+    </div>
+</div> -->
+
+<!-- Table -->
+
+<b>Custom pipe used below</b>
+
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>studentId</th>
+                    <th>name</th>
+                    <th>city</th>
+                    <th>isActive</th>
+                </tr>
+                
+            </thead>
+            
+            <tbody>
+                <tr *ngFor="let student of studentList; let srNo = index">
+                    <td>{{srNo + 1 }} </td>
+                    <td>{{student.name | na}} </td>
+                    <td>{{student.city | uppercase }} </td>
+                    <td>
+                        <span *ngIf="student.isActive">Active</span>
+                        <span *ngIf="!student.isActive">De-Active</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

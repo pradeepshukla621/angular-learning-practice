@@ -1,0 +1,76 @@
+<p>life-cycle works!</p>
+
+<div class="row">
+
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-warning">
+                <h4>Angular LifeCycle</h4>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Hook</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <th>constructor()</th>
+                            <th>Class instantiation. Good for dependency injection, avoid side effects here (This is not a angular lifecycle).</th>           
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <th>ngOnChanges()</th>
+                            <th>"Called before ngOnInit() and whenever input properties change. (Only if <!--@-->&#64;Input() is used.)   </th>           
+                        </tr>
+                        
+                        <tr>
+                            <th>3</th>
+                            <th>ngOnInit()</th>
+                            <th>Called once after the first ngOnChanges(). Best for initialization logic.</th>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <th>ngDoCheck()</th>
+                            <th>Custom change detection, runs with every change detection cycle.</th>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <th>ngAfterContentInit()</th>
+                            <th>Called once after Angular projects external content into the component.</th>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <th>ngAfterContentChecked()</th>
+                            <th>Called after every check of projected content.</th>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <th>ngAfterViewInit()</th>
+                            <th>Called once after the component’s view (and child views) has been initialized.</th>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <th>ngAfterViewChecked()</th>
+                            <th>Called after every check of the component’s view (and child views).</th>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <th>ngOnDestroy()</th>
+                            <th>Cleanup logic before the component is removed (unsubscribe, detach handlers, etc).</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="text-secondary text mt-3 ">Check the console and refresh page</h3>
+
+
+</div>
