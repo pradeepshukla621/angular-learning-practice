@@ -1,37 +1,32 @@
-name: Deploy Angular to GitHub Pages
+name: Build and Deploy Angular
 
 on:
   push:
     branches:
-      - main   # or your default branch
+      - main   # 👈 change this if your default branch is "master"
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0   # 👈 full history so gh-pages deploy works
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href /angular-learning-practice/ --output-path docs
+        run: npm run build -- --configuration production --output-path docs --base-href /angular-learning-practice/
 
-      # 🔥 Fix: Move browser/* to docs root
-      - name: Move build files
-        run: |
-          cp -r docs/browser/* docs/
-          rm -rf docs/browser
-
-      # 🔥 Now index.html exists in docs/
-      - name: Copy index.html to 404.html
+      - name: Copy index.html to 404.html (fix Angular routing on GitHub Pages)
         run: cp docs/index.html docs/404.html
 
       - name: Deploy to GitHub Pages
@@ -39,3 +34,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs
+          publish_branch: gh-pages
