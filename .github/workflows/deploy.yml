@@ -26,8 +26,14 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --configuration production --output-path docs --base-href /angular-learning-practice/
 
-      - name: Copy index.html to 404.html (fix Angular routing on GitHub Pages)
-        run: cp docs/index.html docs/404.html
+      # - name: Copy index.html to 404.html (fix Angular routing on GitHub Pages)
+      #   run: cp docs/index.html docs/404.html
+
+      - name: Move build output to root
+        run: |
+          mv docs/browser/* docs/
+          rmdir docs/browser
+          cp docs/index.html docs/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
